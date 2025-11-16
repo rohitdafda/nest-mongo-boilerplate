@@ -6,12 +6,16 @@ import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { NormalExceptionFilter } from './filters/normal-exception.filter';
 import { ValidationExceptionFilter } from './filters/validator-exception.filter';
 import { ResponseInterceptor } from './interceptor/response.interceptor';
+import { DatabaseModule } from './database/database.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    DatabaseModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [
