@@ -20,12 +20,11 @@ export enum RoleTypesE {
 // Generic user type with role constraint (Option 5)
 // T extends the role type enum to ensure type safety
 export interface AuthenticatedUser<T extends string = string> {
+  id: string;
+  email: string;
   role: {
     type: T;
   };
-  // We can add other common user fields here as needed
-  // id?: string;
-  // email?: string;
 }
 
 export interface FailResponse {
